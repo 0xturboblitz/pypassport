@@ -168,8 +168,10 @@ class PcscReader(Reader):
     def transmit(self, APDU):
         try:
             self.log(APDU)
+            print("APDU", APDU)
             res = self._pcsc_connection.transmit(APDU.getHexListAPDU())
             rep = ResponseAPDU(hexListToBin(res[0]), res[1], res[2])
+            print("rep", rep)
             self.log(rep)
             return rep
         except self.sc.Exceptions.CardConnectionException as msg:

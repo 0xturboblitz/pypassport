@@ -139,6 +139,7 @@ class Iso7816(Logger):
             if self._ciphering:
                 self.log("[SM] " + str(res))
                 res = self._ciphering.unprotect(res)
+                print("res decyphered:", res)
                 
             msg = Iso7816.Errors[res.sw1][res.sw2]
             

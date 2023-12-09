@@ -335,6 +335,7 @@ class EPassport(dict, logger.Logger):
         """
         list = []
         for dg in self["Common"]["5C"]:
+            print("Reading DG file: ", dg)
             list.append(self[dg])
         return list
             
